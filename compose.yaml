@@ -1,0 +1,28 @@
+services:
+  cctv-bot:
+    image: kimmingil/zotero-cctv:latest
+    build: .
+    container_name: zotero_cctv
+    working_dir: /app
+    init: true
+
+    volumes:
+      - .:/app
+
+    env_file:
+      - .env
+
+    environment:
+      - TZ=Asia/Seoul
+      - PYTHONUNBUFFERED=1
+
+    # Optional: Uncomment if you need specific Synology NAS PUID/PGID mapping
+    # user: "1026:100"
+
+    # Synology NAS resource protection (caps memory at 256MB)
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+    restart: unless-stopped

@@ -1,0 +1,22 @@
+# Sensitive environment variables
+.env
+.env.*
+!.env.example
+
+# Runtime state & audit logs (Never commit personal library data!)
+*.log
+*.log.*
+zotero_state*.json
+temp_*.json
+data/
+
+# Python cache & test artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.DS_Store
